@@ -9,6 +9,6 @@ public class Bullet : MonoBehaviour
 	{
         // Shoots the bullet forward (right) based on its rotation
         rb.linearVelocity = transform.right * speed * Time.fixedDeltaTime;
-		Object.Destroy(gameObject, 5f);
+		Object.Destroy(gameObject, 3f);
 	}
 }
