@@ -14,8 +14,8 @@ public class PlayerMovement : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        float xImput = Input.GetAxis("Horizontal");
-        float yImput = Input.GetAxis("Vertical");
+        float xImput = Input.GetAxisRaw("Horizontal");
+        float yImput = Input.GetAxisRaw("Vertical");
 
         Vector2 direction = new Vector2(xImput, yImput).normalized;
         body.linearVelocity = direction * speed;
