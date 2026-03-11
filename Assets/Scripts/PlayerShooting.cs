@@ -17,11 +17,24 @@ public class PlayerShooting : MonoBehaviour
 
 	void Shoot()
 	{
-		// Create the bullet at the FirePoint's position and rotation
+		// 1. Get the mouse position in world space
+		Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+		// 2. Calculate the direction vector from firePoint to mouse position
+		Vector2 direction = (mousePosition - firePoint.position).normalized;
+
+		// 3. Optional: Rotate the player/gun to look at the mouse
+		float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+		transform.rotation = Quaternion.Euler(0f, 0f, angle);
+
+		// 4. Instantiate the bullet
 		GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
-		// Add force to the bullet to make it move
+		// 5. Apply velocity using the calculated direction vector
 		Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-		rb.AddForce(firePoint.right * bulletForce, ForceMode2D.Impulse);
+		if (rb != null)
+		{
+			rb.linearVelocity = direction * bulletForce;
+		}
 	}
 }
