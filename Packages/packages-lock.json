@@ -110,12 +110,20 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.cinemachine": {
+<<<<<<< Player-Camera
+      "version": "2.10.6",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.test-framework": "1.1.31"
+=======
       "version": "3.1.6",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.splines": "2.0.0",
         "com.unity.modules.imgui": "1.0.0"
+>>>>>>> main
       },
       "url": "https://packages.unity.com"
     },
