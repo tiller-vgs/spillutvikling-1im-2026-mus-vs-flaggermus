@@ -30,8 +30,8 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int amount)
     {
         if (isInvincible) return;
-
-        currentHealth -= amount;
+		isInvincible = true;
+		currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
         ShowDamagePopup(amount);
@@ -70,7 +70,6 @@ public class PlayerHealth : MonoBehaviour
 
     private IEnumerator InvincibilityFrames()
     {
-        isInvincible = true;
         yield return new WaitForSeconds(invincibilityTime);
         isInvincible = false;
     }
