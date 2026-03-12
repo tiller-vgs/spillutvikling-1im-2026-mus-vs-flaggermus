@@ -23,9 +23,7 @@ public class PlayerShooting : MonoBehaviour
 		// 2. Calculate the direction vector from firePoint to mouse position
 		Vector2 direction = (mousePosition - firePoint.position).normalized;
 
-		// 3. Optional: Rotate the player/gun to look at the mouse
-		float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-		transform.rotation = Quaternion.Euler(0f, 0f, angle);
+		
 
 		// 4. Instantiate the bullet
 		GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
