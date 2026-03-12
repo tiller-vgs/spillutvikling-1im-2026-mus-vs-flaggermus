@@ -1756,6 +1756,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   bulletPrefab: {fileID: 199964875162166522, guid: e8b8c64bb929943418fe00312df60cf8, type: 3}
   firePoint: {fileID: 523210496}
+<<<<<<< Player-Camera
   bulletForce: 20
 --- !u!1 &962698637
 GameObject:
@@ -1829,6 +1830,10 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 1548217994}
+=======
+  bulletForce: 10
+  fireRate: 1
+>>>>>>> main
 --- !u!1 &1125884649
 GameObject:
   m_ObjectHideFlags: 0
