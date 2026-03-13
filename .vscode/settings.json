@@ -67,5 +67,6 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "spillutvikling-1im-2026-mus-vs-flaggermus.slnx"
+    "dotnet.defaultSolution": "spillutvikling-1im-2026-mus-vs-flaggermus.slnx",
+    "dotnet.preferCSharpExtension": true
 }
