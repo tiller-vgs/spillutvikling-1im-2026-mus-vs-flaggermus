@@ -208,6 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDamage
   damage: 5
+  attackCooldown: 1
 --- !u!1 &352165672
 GameObject:
   m_ObjectHideFlags: 0

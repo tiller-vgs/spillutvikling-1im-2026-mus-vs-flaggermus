@@ -13,13 +13,13 @@ public class Bullet : MonoBehaviour
 	// This method triggers when the bullet collides with another object
 	void OnTriggerEnter2D(Collider2D hitInfo)
 	{
-		// 1. Ignore collision with the player
+		// Ignore collision with the player
 		if (hitInfo.CompareTag("Player"))
 		{
 			return; // Exit the method, the bullet keeps flying
 		}
 
-		// 2. Check if we hit an enemy
+		//  Check if we hit an enemy
 		if (hitInfo.CompareTag("Enemy"))
 		{
 			Debug.Log("Hit an enemy! Object: " + hitInfo.name);
@@ -29,7 +29,7 @@ public class Bullet : MonoBehaviour
 			// if (enemy != null) { enemy.TakeDamage(damage); }
 		}
 
-		// 3. If the bullet hits a wall, log a message (optional)
+		//  If the bullet hits a wall, log a message (optional)
 		if (hitInfo.CompareTag("Wall"))
 		{
 			Debug.Log("Bullet hit a wall.");
@@ -38,7 +38,7 @@ public class Bullet : MonoBehaviour
 		// Log this message to verify what the bullet actually hit
 		Debug.Log("Bullet collided with object: " + hitInfo.name + " with tag: " + hitInfo.tag);
 
-		// 4. Destroy the bullet on any collision (except the player)
+		//  Destroy the bullet on any collision (except the player)
 		Destroy(gameObject);
 	}
 }
