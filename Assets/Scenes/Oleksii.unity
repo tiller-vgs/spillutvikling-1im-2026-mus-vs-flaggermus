@@ -208,6 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDamage
   damage: 5
+  attackCooldown: 1
 --- !u!1 &352165672
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,6 +635,7 @@ GameObject:
   m_Component:
   - component: {fileID: 592237720}
   - component: {fileID: 592237721}
+  - component: {fileID: 592237722}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Player
@@ -663,7 +665,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 592237719}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -702,6 +704,91 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!68 &592237722
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592237719}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 1.3921595, y: 0.73580265}
+  - {x: 1.2284088, y: 0.99668646}
+  - {x: 0.96974087, y: 1.1116333}
+  - {x: 0.6969719, y: 1.0665278}
+  - {x: 0.36334896, y: 0.79363346}
+  - {x: -0.14988327, y: 0.849205}
+  - {x: -0.32841682, y: 1.2140522}
+  - {x: -0.60232353, y: 1.2793307}
+  - {x: -0.7803774, y: 1.1921782}
+  - {x: -0.95321083, y: 0.9346585}
+  - {x: -0.916029, y: 0.64544106}
+  - {x: -0.81868553, y: 0.4984355}
+  - {x: -0.62257767, y: 0.39546204}
+  - {x: -0.6456919, y: 0.34112453}
+  - {x: -0.73092365, y: 0.22561502}
+  - {x: -0.73473835, y: 0.06888914}
+  - {x: -0.6372118, y: -0.097269535}
+  - {x: -0.38111305, y: -0.23048353}
+  - {x: -0.71532345, y: -0.5991726}
+  - {x: -0.77279663, y: -0.81019926}
+  - {x: -0.71635437, y: -0.9155965}
+  - {x: -0.55389786, y: -0.9217062}
+  - {x: -0.5298939, y: -1.1226311}
+  - {x: -0.4417448, y: -1.3216507}
+  - {x: -0.6832628, y: -1.4156337}
+  - {x: -0.6726713, y: -1.5603924}
+  - {x: -0.15172863, y: -1.574166}
+  - {x: 0.029906273, y: -1.2475042}
+  - {x: 0.18033504, y: -1.4802074}
+  - {x: 0.22645569, y: -1.667238}
+  - {x: 0.6566849, y: -1.6984563}
+  - {x: 0.6677313, y: -1.530113}
+  - {x: 0.54844475, y: -1.3962085}
+  - {x: 0.6239691, y: -1.0566249}
+  - {x: 0.73746204, y: -0.96743345}
+  - {x: 0.6818943, y: -0.63270664}
+  - {x: 0.43057346, y: -0.2752576}
+  - {x: 0.72982883, y: -0.13151312}
+  - {x: 0.78554344, y: 0.0018172264}
+  - {x: 0.7641096, y: 0.19558668}
+  - {x: 0.9846287, y: 0.170784}
+  - {x: 1.3027935, y: 0.30868578}
+  - {x: 1.3983374, y: 0.5696268}
+  - {x: 1.3776712, y: 0.7557726}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &662917411
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,8 +815,8 @@ Transform:
   m_GameObject: {fileID: 662917411}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.21, y: -0.21, z: 0}
+  m_LocalScale: {x: 0.16499056, y: 0.15152678, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1910789464}
@@ -783,7 +870,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 7b5fc50468b3b244da69fb528d567695, type: 3}
+  m_Sprite: {fileID: 2558989174164301147, guid: 00116141ae619d4479a6777b5959d0b5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -883,7 +970,7 @@ GameObject:
   - component: {fileID: 724435855}
   m_Layer: 0
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

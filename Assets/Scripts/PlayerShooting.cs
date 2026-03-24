@@ -30,7 +30,6 @@ public class PlayerShooting : MonoBehaviour
 		// 2. Calculate the direction vector from firePoint to mouse position
 		Vector2 direction = (mousePosition - firePoint.position).normalized;
 
-
 		// 4. Instantiate the bullet
 		GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
 
