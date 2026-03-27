@@ -2,43 +2,40 @@
 
 public class Bullet : MonoBehaviour
 {
-	public int damage = 10; // How much damage the bullet deals
+	public float speed = 20f;
+	public int damage = 10;
 
 	void Start()
 	{
-		// Destroy the bullet after 3 seconds if it hits nothing
+		// Destroy the bullet after 3 seconds 
 		Destroy(gameObject, 3f);
 	}
 
-	// This method triggers when the bullet collides with another object
+	void Update()
+	{
+
+		transform.Translate(Vector3.up * speed * Time.deltaTime);
+	}
+
 	void OnTriggerEnter2D(Collider2D hitInfo)
 	{
-		// Ignore collision with the player
-		if (hitInfo.CompareTag("Player"))
+
+		if (hitInfo.CompareTag("Player") || hitInfo.name == "Confiner")
 		{
-			return; // Exit the method, the bullet keeps flying
+			return;
 		}
 
-		//  Check if we hit an enemy
 		if (hitInfo.CompareTag("Enemy"))
 		{
-			Debug.Log("Hit an enemy! Object: " + hitInfo.name);
-
-			// Placeholder for dealing damage:
-			// Enemy enemy = hitInfo.GetComponent<Enemy>();
-			// if (enemy != null) { enemy.TakeDamage(damage); }
+			Debug.Log("Hit an enemy: " + hitInfo.name);
 		}
 
-		//  If the bullet hits a wall, log a message (optional)
 		if (hitInfo.CompareTag("Wall"))
 		{
 			Debug.Log("Bullet hit a wall.");
 		}
 
-		// Log this message to verify what the bullet actually hit
-		Debug.Log("Bullet collided with object: " + hitInfo.name + " with tag: " + hitInfo.tag);
-
-		//  Destroy the bullet on any collision (except the player)
+		// Destroy the bullet on collision with anything else
 		Destroy(gameObject);
 	}
 }
