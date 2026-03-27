@@ -1,7 +1,5 @@
 using UnityEngine;
 
-// This is an example of how you can spawn a wave of enemies in Unity - Gatsby
-
 public class WaveSpawner : MonoBehaviour
 {
 
