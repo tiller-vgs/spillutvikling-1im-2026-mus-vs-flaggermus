@@ -838,7 +838,7 @@ GameObject:
   - component: {fileID: 899036117}
   m_Layer: 0
   m_Name: Player FirePoint
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1634,7 +1634,7 @@ GameObject:
   - component: {fileID: 1520493344}
   - component: {fileID: 1520493345}
   m_Layer: 0
-  m_Name: EnemyWaveSpawner
+  m_Name: EnemySpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1649,7 +1649,7 @@ Transform:
   m_GameObject: {fileID: 1520493343}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.82, y: 0.14, z: 2}
+  m_LocalPosition: {x: 4.54096, y: 0.97206, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1664,12 +1664,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1520493343}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 745fe4c7cf4923448bfa6f667abfae94, type: 3}
+  m_Script: {fileID: 11500000, guid: 95c986aba7da5ab46b803108b25d4850, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyWaveSpawner
-  enemyPrefab: {fileID: 197281895095409476, guid: a81d486e044d9bc49af506a192849fc8, type: 3}
-  enemiesPerWave: 10
-  spawnSpacing: 1.5
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
 --- !u!1 &1594478736
 GameObject:
   m_ObjectHideFlags: 0
