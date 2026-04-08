@@ -2,21 +2,16 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
-	public GameObject bulletPrefab; // Drag your Bullet Prefab here in the Inspector
-	public Transform firePoint;     // Drag your FirePoint object here
-	public float bulletForce = 20f;
+	public GameObject bulletPrefab;
+	public Transform firePoint;
 
-	// --- Variables for fire rate control ---
-	public float fireRate = 0.2f;    // Time in seconds between shots (0.2 = 5 shots per second)
-	private float nextFireTime = 0f; // Stores the time when the next shot can be fired
+	public float fireRate = 0.2f;
+	private float nextFireTime = 0f;
 
 	void Update()
 	{
-		// Using GetButton instead of GetButtonDown for automatic firing when holding LMB.
-		// Also checking if the current game time is greater than or equal to the next allowed fire time.
 		if (Input.GetButton("Fire1") && Time.time >= nextFireTime)
 		{
-			// Set the time for the next shot
 			nextFireTime = Time.time + fireRate;
 			Shoot();
 		}
@@ -24,20 +19,18 @@ public class PlayerShooting : MonoBehaviour
 
 	void Shoot()
 	{
-		// 1. Get the mouse position in world space
+		//Get the mouse position and fix the Z axis
 		Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		mousePosition.z = firePoint.position.z;
 
-		// 2. Calculate the direction vector from firePoint to mouse position
-		Vector2 direction = (mousePosition - firePoint.position).normalized;
+		//Calculate the direction to the mouse
+		Vector2 direction = mousePosition - firePoint.position;
 
-		// 4. Instantiate the bullet
-		GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+		// 3. Math: calculate the rotation angle. 
+		float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-		// 5. Apply velocity using the calculated direction vector
-		Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-		if (rb != null)
-		{
-			rb.linearVelocity = direction * bulletForce;
-		}
+		Quaternion rotation = Quaternion.Euler(0, 0, angle - 90f);
+
+		Instantiate(bulletPrefab, firePoint.position, rotation);
 	}
 }
