@@ -26,6 +26,7 @@ public class MainMenu : MonoBehaviour
 		{
 			if (Input.GetKeyDown(KeyCode.Escape)) // Check for Escape key press
 			{
+				Debug.Log("Escape key pressed. Toggling pause menu.");
 				if (GameIsPaused)
 				{
 					Resume();
@@ -53,7 +54,7 @@ public class MainMenu : MonoBehaviour
 		public void LoadMenu()
 		{
 			Time.timeScale = 1f; //reset time scale before loading a new scene
-			SceneManager.LoadScene("PauseMenu"); 
+			SceneManager.LoadScene("MainMenu"); 
 		}
 	}
 }
